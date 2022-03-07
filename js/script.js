@@ -41,6 +41,17 @@ function drawCircle() {
   console.log(ctx);
 }
 
+class Particle {
+  constructor() {
+    this.x = mouse.x;
+    this.y = mouse.y;
+    this.size = Math.random() * 5 + 1;
+    this.speedY = Math.random() * 3 - 1.5;
+    this.speedX = Math.random() * 3 - 1.5;
+  }
+  update() {}
+}
+
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCircle();
