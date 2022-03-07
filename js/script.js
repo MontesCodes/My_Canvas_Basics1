@@ -40,4 +40,10 @@ function drawCircle() {
   ctx.fill();
   console.log(ctx);
 }
-drawCircle();
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCircle();
+  requestAnimationFrame(animate);
+}
+animate();
