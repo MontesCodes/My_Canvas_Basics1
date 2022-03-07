@@ -1,5 +1,5 @@
 'use strict';
-const canvas = document.gerElementById('canvas1');
+const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 // console.log(ctx);
 canvas.width = window.innerWidth;
@@ -13,11 +13,31 @@ window.addEventListener('resize', function () {
   canvas.height = window.innerHeight;
 });
 
-ctx.fillStyle = 'red';
-ctx.strokeStyle = 'red';
-ctx.lineWidth - 5;
-ctx.beginPath();
-ctx.arc(100, 100, 50, 0, Math.PI * 2);
-ctx.strokeStyle();
-ctx.fill();
-console.log(ctx);
+const mouse = {
+  x: undefined,
+  y: undefined,
+};
+canvas.addEventListener('click', function (event) {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  drawCircle();
+  //   console.log(event);
+});
+
+canvas.addEventListener('mousemove', function () {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  drawCircle();
+});
+
+function drawCircle() {
+  ctx.fillStyle = 'red';
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.arc(mouse.x, mouse.y, 50, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fill();
+  console.log(ctx);
+}
+drawCircle();
